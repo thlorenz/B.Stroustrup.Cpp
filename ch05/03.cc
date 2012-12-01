@@ -5,7 +5,7 @@ typedef int*                  pint;
 typedef char**                ppchar;
 
 // pointer to arrays of char
-typedef char*                 pchar[];
+typedef char                 (*pchar)[];
 
 // array of 7 pointers to int
 typedef int*                  spint[7];
