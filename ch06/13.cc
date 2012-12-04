@@ -20,5 +20,6 @@ int main(int argc, const char *argv[])
 {
   const char *res = cat_("hello world", " my friend");
   cout << "result: " << res << endl;
+  delete res;
   return 0;
 }
