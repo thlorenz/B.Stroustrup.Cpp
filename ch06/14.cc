@@ -18,19 +18,35 @@ const char* rev_returning(const char *src)
   return tgt;
 }
 
+void rev_inplace_with_tmp_ptr(char *s)
+{
+  // not properly working
+  char *p = s;
+
+  while(*p) p++;
+
+  char *t = s;
+  while(--p > s)
+  {
+      //cout << " p: " << p;
+      *t = *s;
+      *s++ = *p;
+      *p = *t;
+  }
+}
 void rev_inplace_with_tmp(char *s)
 {
   char *p = s;
 
   while(*p) p++;
 
-  // using just char t; works as well (replacing all *t assignments with t assignments)
-  char *t = s;
+  char t;
   while(--p > s)
   {
-      *t = *s;
+      //cout << " p: " << p;
+      t = *s;
       *s++ = *p;
-      *p = *t;
+      *p = t;
   }
 }
 
