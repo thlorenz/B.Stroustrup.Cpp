@@ -18,13 +18,14 @@ const char* rev_returning(const char *src)
   return tgt;
 }
 
-void rev_inplace_segfault(char *s)
+void rev_inplace_with_tmp(char *s)
 {
   char *p = s;
 
-  while(*p) *p++;
+  while(*p) p++;
 
-  char *t;
+  // using just char t; works as well (replacing all *t assignments with t assignments)
+  char *t = s;
   while(--p > s)
   {
       *t = *s;
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
   cout << "result: " << res << endl;
   delete res;
 
-  rev_inplace(argv[1]);
+  rev_inplace_with_tmp(argv[1]);
   cout << "result: " << argv[1] << endl;
 
   return 0;
