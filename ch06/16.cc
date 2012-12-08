@@ -87,5 +87,4 @@ int main(int argc, const char *argv[])
   test_decimals();
   test_octals();
   test_hexadecimals();
-  cout << endl << "result: " << atoi_("0xF") << endl; return 0;
 }
